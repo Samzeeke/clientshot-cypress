@@ -1,0 +1,15 @@
+{
+  "name": "clientshot-cypress",
+  "version": "1.0.0",
+  "description": "Cypress regression suite for ClientShot (Page Object Model)",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:smoke": "cypress run --spec 'cypress/e2e/smoke/**/*.cy.js'",
+    "cy:run:headed": "cypress run --headed",
+    "cy:run:chrome": "cypress run --browser chrome"
+  },
+  "devDependencies": {
+    "cypress": "^13.15.0"
+  }
+}
