@@ -48,19 +48,6 @@ cypress/
     e2e.js                    # global config, uncaught exception handling
 ```
 
-## What YOU need to fill in before this is real (2 things left)
-
-1. ~~`cypress.config.js` baseUrl~~ — done: `https://app.clientshot.com`
-2. **`cypress/pages/LoginPage.js`** — replace the placeholder selectors
-   (`emailInput`, `passwordInput`, `submitButton`) with ClientShot's real
-   ones, and fix `assertLoginSucceeded()` to check a real post-login
-   signal (e.g. dashboard element or redirect path). Ask Damilare/dev
-   team to add `data-testid` attributes to the login form and nav links
-   if they don't already exist — it'll save you from rewriting selectors
-   every time a class name changes.
-3. **`cypress/pages/NavPage.js`** — replace the placeholder `pages` array
-   with ClientShot's real page list (name + path + optional nav
-   `data-testid`). Every entry you add gets a smoke test for free.
 
 ## Design notes
 
