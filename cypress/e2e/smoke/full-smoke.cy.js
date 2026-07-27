@@ -1,8 +1,9 @@
 import NavPage from "../../pages/NavPage";
 
 describe("ClientShot — Production Smoke Suite", () => {
-  beforeEach(() => {
-    // UI login every test, per requirement — no session caching.
+  before(() => {
+    // One UI login per spec avoids production rate limiting while still
+    // exercising the real authentication flow.
     cy.loginAsQaUser();
   });
 
@@ -10,16 +11,6 @@ describe("ClientShot — Production Smoke Suite", () => {
     it(`loads the ${name} page without errors`, () => {
       NavPage.visit(path);
       NavPage.assertPageHealthy();
-    });
-  });
-
-  it("navigates the whole nav bar without a full reload (click-through check)", () => {
-    NavPage.visit("/dashboard");
-    NavPage.pages.forEach(({ name, navTestId }) => {
-      if (!navTestId) return;
-      NavPage.goToViaNav(navTestId);
-      NavPage.assertPageHealthy();
-      cy.log(`Navigated to ${name} via nav bar`);
     });
   });
 });

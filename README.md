@@ -48,8 +48,6 @@ cypress/
     e2e.js                    # global config, uncaught exception handling
 ```
 
-<<<<<<< HEAD
-=======
 ## What YOU need to fill in before this is real (2 things left)
 
 1. ~~`cypress.config.js` baseUrl~~ — done: `https://app.clientshot.com`
@@ -63,7 +61,6 @@ cypress/
 3. **`cypress/pages/NavPage.js`** — replace the placeholder `pages` array
    with ClientShot's real page list (name + path + optional nav
    `data-testid`). Every entry you add gets a smoke test for free.
->>>>>>> b29760a (Add Cypress smoke test scripts)
 
 ## Design notes
 

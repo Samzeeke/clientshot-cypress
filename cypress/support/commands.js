@@ -1,6 +1,5 @@
 import LoginPage from "../pages/LoginPage";
 
-<<<<<<< HEAD
 /**
  * Logs in through the real UI (per test, no session caching) using
  * credentials from cypress.env.json. Safe default for a read-only
@@ -19,22 +18,6 @@ Cypress.Commands.add("loginAsQaUser", () => {
   LoginPage.visit();
   LoginPage.login(email, password);
   LoginPage.assertLoginSucceeded();
-});
-=======
-Cypress.Commands.add("loginAsQaUser", () => {
-
-    const email = Cypress.env("qaUserEmail");
-    const password = Cypress.env("qaUserPassword");
-
-    LoginPage.visit();
-
-    LoginPage.login(
-        email,
-        password
-    );
-
-    LoginPage.assertLoginSucceeded();
-
 });
 
 Cypress.Commands.add("verifyNoErrorModal", () => {
@@ -67,4 +50,3 @@ Cypress.Commands.add("verifyNoErrorModal", () => {
     });
 
 });
->>>>>>> b29760a (Add Cypress smoke test scripts)
