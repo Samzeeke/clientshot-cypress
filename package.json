@@ -10,6 +10,10 @@
     "cy:run:chrome": "cypress run --browser chrome"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "cypress": "^13.15.0"
+=======
+    "cypress": "^15.18.1"
+>>>>>>> b29760a (Add Cypress smoke test scripts)
   }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Node
 node_modules/
@@ -28,3 +29,11 @@ logs/
 # VS Code
 .vscode/
 
+=======
+node_modules/
+cypress.env.json
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+.env
+>>>>>>> b29760a (Add Cypress smoke test scripts)

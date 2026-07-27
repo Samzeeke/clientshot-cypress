@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+<<<<<<< HEAD
   e2e: {
     baseUrl: "https://app.clientshot.com",
 
@@ -29,3 +30,42 @@ module.exports = defineConfig({
     },
   },
 });
+=======
+
+    e2e: {
+
+        baseUrl: "https://app.clientshot.com",
+
+        env: {
+
+            qaUserEmail: "YOUR_EMAIL",
+
+            qaUserPassword: "YOUR_PASSWORD",
+
+            allowWrites: false,
+
+        },
+
+        viewportWidth: 1366,
+
+        viewportHeight: 768,
+
+        defaultCommandTimeout: 10000,
+
+        pageLoadTimeout: 30000,
+
+        retries: {
+            runMode: 2,
+            openMode: 0,
+        },
+
+        setupNodeEvents(on, config) {
+
+            return config;
+
+        }
+
+    }
+
+});
+>>>>>>> b29760a (Add Cypress smoke test scripts)
