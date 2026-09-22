@@ -26,7 +26,7 @@ describe("ClientShot — User Management", () => {
   // Sends a REAL invitation email in production — only runs when
   // explicitly enabled. Run with:
   //   npx cypress run --env allowWrites=true
-  (Cypress.env("allowWrites") ? it : it.skip)(
+  (Cypress.expose("allowWrites") ? it : it.skip)(
     "invites a new teammate",
     () => {
       UserManagementPage.visit();

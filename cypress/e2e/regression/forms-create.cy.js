@@ -15,7 +15,7 @@ describe("ClientShot — Forms: Create", () => {
   // Creates REAL data in production — only runs when explicitly
   // enabled. Run with:
   //   npx cypress run --env allowWrites=true
-  (Cypress.env("allowWrites") ? it : it.skip)(
+  (Cypress.expose("allowWrites") ? it : it.skip)(
     "creates a new form with a dropdown and a radio question",
     () => {
       const formName = `QA Regression Form ${Date.now()}`;

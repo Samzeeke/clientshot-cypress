@@ -9,7 +9,7 @@ module.exports = defineConfig({
 
     // Read-only production run: keep test data creation OFF by default.
     // Individual specs can override this via Cypress.env('allowWrites')
-    env: {
+    expose: {
       allowWrites: false,
     },
 

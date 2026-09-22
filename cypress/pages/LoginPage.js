@@ -14,7 +14,7 @@ class LoginPage extends BasePage {
     passwordInput: "input[type='password']",
     // Recorded as css=button.primary — the only primary button on
     // the sign-in screen, i.e. the Login/Sign in submit button.
-    submitButton: "button.primary",
+    submitButton: ".welcome-margin > .main-body-box > app-button > .primary",
     loginErrorBanner: '[data-testid="login-error"]', // TODO: confirm real error selector
   };
 

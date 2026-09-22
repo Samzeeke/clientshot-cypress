@@ -6,25 +6,30 @@ import WorkspacePage from "../pages/WorkspacePage";
  * credentials from cypress.env.json, then handles the workspace
  * picker if ClientShot shows one for this account. Safe default for
  * a read-only production smoke/regression suite.
+ *
+ * Uses cy.env() rather than the removed Cypress.env() (removed in
+ * Cypress 16) — credentials are sensitive, so cy.env() is the right
+ * choice: it only exposes the specific keys requested and keeps
+ * everything else out of the browser context.
  */
 Cypress.Commands.add("loginAsQaUser", () => {
-  const email = Cypress.env("qaUserEmail");
-  const password = Cypress.env("qaUserPassword");
-  const workspaceName = Cypress.env("qaWorkspaceName"); // optional, set in cypress.env.json if needed
+  cy.env(["qaUserEmail", "qaUserPassword", "qaWorkspaceName"]).then(
+    ({ qaUserEmail, qaUserPassword, qaWorkspaceName }) => {
+      if (!qaUserEmail || !qaUserPassword) {
+        throw new Error(
+          "Missing qaUserEmail / qaUserPassword. Set them in cypress.env.json."
+        );
+      }
 
-  if (!email || !password) {
-    throw new Error(
-      "Missing qaUserEmail / qaUserPassword. Set them in cypress.env.json."
-    );
-  }
+      LoginPage.visit();
+      LoginPage.login(qaUserEmail, qaUserPassword);
+      LoginPage.assertLoginSucceeded();
 
-  LoginPage.visit();
-  LoginPage.login(email, password);
-  LoginPage.assertLoginSucceeded();
+      if (qaWorkspaceName) {
+        WorkspacePage.selectWorkspaceIfPresent(qaWorkspaceName);
+      }
 
-  if (workspaceName) {
-    WorkspacePage.selectWorkspaceIfPresent(workspaceName);
-  }
-
-  cy.location("pathname", { timeout: 10000 }).should("include", "/dashboard");
+      cy.location("pathname", { timeout: 10000 }).should("include", "/dashboard");
+    }
+  );
 });
